@@ -1,19 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"net/http"
+	"github.com/vinidotruan/alura-go-rest-api/models"
+	"github.com/vinidotruan/alura-go-rest-api/routes"
 )
 
-func Home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World")
-}
-
-func HandleRequest() {
-	http.HandleFunc("/", Home)
-	log.Fatal(http.ListenAndServe(":8080", nil))
-}
 func main() {
-	HandleRequest()
+	models.Personalities = []models.Personality{
+		{Name: "Teste", History: "Teste", Id: 1},
+	}
+	routes.HandleRequest()
 }
